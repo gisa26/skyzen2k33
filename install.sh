@@ -76,4 +76,15 @@ echo "2. Copy file panel"
 echo "3. Konfigurasi Nginx"
 echo "4. Integrasi Xray"
 
+echo "Install Nginx Config..."
+
+cp nginx/skyzen.conf /etc/nginx/sites-available/skyzen
+
+ln -sf /etc/nginx/sites-available/skyzen \
+/etc/nginx/sites-enabled/skyzen
+
+nginx -t
+
+systemctl restart nginx
+
 exit 0
